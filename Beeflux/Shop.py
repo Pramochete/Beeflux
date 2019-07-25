@@ -16,8 +16,12 @@ class Shop:
                             "chillies" : "$0.9",
                             "spinach" : "$1.5",
                             }
-        print ("Cost of {} is {}".format(requestCostOfItems, returnCostOfItem[requestCostOfItems]))
-
+        chechKeys = returnCostOfItem.keys()
+        if requestCostOfItems in chechKeys:
+            print ("Cost of {} is {}".format(requestCostOfItems, returnCostOfItem[requestCostOfItems]))
+        else:
+            print("The item {} doesn't exist in our store".format(requestCostOfItems))
+   
     def sold_item(self, soldItem):
         if soldItem in self.listOfItems:
             self.listOfItems.remove(soldItem)
@@ -51,4 +55,3 @@ while True:
         user.sold_item(soldItem)
     elif userChoice is 4:
         quit()
-
